@@ -13,10 +13,7 @@ public class FilmController {
     @Autowired
     FilmService filmService;
 
-    @GetMapping("/")
-    public String index(){
-        return "welcome to Film Project";
-    }
+
     //for insert data into db
     @PostMapping("/addFilm")
     public String createFilm(@RequestBody Films films) {
@@ -30,7 +27,7 @@ public class FilmController {
         return "Updated Successfully";
     }
     //get film by specific Id
-    @GetMapping("/get/{film_id}")
+    @GetMapping("/getById/{film_id}")
     public Films getFilm(@PathVariable("film_id") int film_id){
         return filmService.getFilm(film_id);
     }
@@ -45,4 +42,11 @@ public class FilmController {
         filmService.deleteFilm(film_id);
         return "deleted Successfully";
     }
+    //get film by specific name
+    @GetMapping("/getFilmByName/{film_name}")
+    public Films getFilmByName(@PathVariable("film_name") String film_name) {
+        return filmService.getFilmByName(film_name);
+    }
+
+
 }

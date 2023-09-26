@@ -11,4 +11,7 @@ public interface FilmService {
     public Films getFilm(int film_id);
     public List<Films> getAllFilm();
 
+    public Films getFilmByName(String film_name);
+
+
 }

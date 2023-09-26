@@ -49,6 +49,10 @@ public class FilmServiceImpl implements FilmService{
         if(filmRepo.findAll().isEmpty())
             throw new FilmNotFoundException("Database is empty");
         return filmRepo.findAll();
-    }
+}
 
+    @Override
+    public Films getFilmByName(String film_name) {
+        return filmRepo.findByFilmName(film_name);
+    }
 }
